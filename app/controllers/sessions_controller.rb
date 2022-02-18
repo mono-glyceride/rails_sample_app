@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
       #ユーザーがデータベースにあり、かつ、認証に成功した
       log_in user
       #ユーザーのセッションを永続的にする
-      remember user
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+      #params[:session][:remember_me] はチェックボックスがオンで'1'になる
       redirect_to user
       # ユーザーログイン後にユーザー情報のページにリダイレクトする
     else
