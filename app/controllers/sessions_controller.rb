@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       #ユーザーのセッションを永続的にする
       params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
       #params[:session][:remember_me] はチェックボックスがオンで'1'になる
-      redirect_to @user
+      redirect_back_or @user
       # ユーザーログイン後にユーザー情報のページにリダイレクトする
     else
       flash.now[:danger] = 'Invalid email/password combination' 
