@@ -3,3 +3,9 @@ michael:
   email: michael@example.com
   password_digest: <%= User.digest('password') %>
   #fixtureではERbを利用できる
+  
+archer:
+  name: Sterling Archer
+  email: duchess@example.gov
+  password_digest: <%= User.digest('password') %>
+  #２人目のユーザー。別ユーザーの編集などができないかテストする
